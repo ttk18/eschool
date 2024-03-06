@@ -1,0 +1,4 @@
+<svg id="facebook" xmlns="http://www.w3.org/2000/svg" width="67" height="67" viewBox="0 0 67 67">
+  <rect id="back" width="67" height="67" rx="9.571" fill="rgba(60,203,155,0.3)"/>
+  <path id="fb" d="M25.048,23.823l1.177-7.657H18.87V11.184a3.829,3.829,0,0,1,4.322-4.14h3.35V.517A40.772,40.772,0,0,0,20.6,0C14.541,0,10.584,3.671,10.584,10.316v5.843H3.85v7.657h6.733V42.354H18.87V23.823Z" transform="translate(18.511 12.287)" fill="#3ccb9b"/>
+</svg>
