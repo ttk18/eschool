@@ -31,7 +31,9 @@ class Controller extends BaseController {
         $this->systemSettings = $systemSettings;
         $this->guidance = $guidance;
     }
-
+    public function setTimeZone(){
+        return date_default_timezone_set(app(CachingService::class)->getSystemSettings('time_zone'));
+    }
     public function index() {
 
         if (Auth::user()) {

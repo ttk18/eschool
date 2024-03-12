@@ -51,6 +51,7 @@ class ExamController extends Controller {
         $this->classSubject = $classSubject;
         $this->users = $users;
         $this->cache = $cache;
+        $this->setTimeZone();
     }
 
     public function index() {
@@ -239,7 +240,6 @@ class ExamController extends Controller {
             })->with('class_subject.subject');
         }])->where('publish', 0)->get();
 
-
         return response()->view('exams.upload-marks', compact('exams', 'classes'));
     }
 
@@ -247,7 +247,11 @@ class ExamController extends Controller {
         ResponseService::noFeatureThenRedirect('Exam Management');
         ResponseService::noPermissionThenSendJson('class-teacher');
 
-        $request->validate(['class_section_id' => 'required', 'exam_id' => 'required', 'class_subject_id' => 'required',], ['class_section_id.required' => 'Class section field is required', 'exam_id.required' => 'Exam field is required', 'class_subject_id.required' => 'Class subject field is required',]);
+        $request->validate(['class_section_id' => 'required',
+            'exam_id' => 'required', 'class_subject_id' => 'required',],
+            ['class_section_id.required' => 'Class section field is required',
+                'exam_id.required' => 'Exam field is required',
+                'class_subject_id.required' => 'Class subject field is required',]);
 
         try {
 

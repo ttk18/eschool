@@ -101,6 +101,9 @@ class StudentApiController extends Controller {
         if (Auth::attempt(['email' => $request->gr_number, 'password' => $request->password, 'status' => 1])) {
             //Here Email Field is referenced as a GR Number for Student
             $auth = Auth::user();
+//            dd($auth->hasRole('Student'));
+            dd($this->user->builder()->role('Student')->count());
+
             if (!$auth->hasRole('Student')) {
                 ResponseService::errorResponse('Invalid Login Credentials', null, config('constants.RESPONSE_CODE.INVALID_LOGIN'));
             }
